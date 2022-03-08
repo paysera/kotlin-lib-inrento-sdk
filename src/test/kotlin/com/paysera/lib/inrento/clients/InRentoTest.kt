@@ -1,6 +1,8 @@
 package com.paysera.lib.inrento.clients
 
 import com.paysera.lib.common.exceptions.ApiError
+import com.paysera.lib.inrento.entities.requests.PSAuthTokenRefreshRequest
+import com.paysera.lib.inrento.entities.requests.PSAuthTokenRequest
 import com.paysera.lib.inrento.entities.requests.PSInvestRequest
 import com.paysera.lib.inrento.runCatchingBlocking
 import org.junit.jupiter.api.Test
@@ -8,6 +10,15 @@ import org.junit.jupiter.api.TestInstance
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 internal class InRentoTest : BaseTest() {
+
+    @Test
+    fun getToken() {
+        val authTokenResponse = apiClient.getToken(PSAuthTokenRequest("729511"))
+            .runCatchingBlocking()
+        val authTokenRefreshResponse= apiClient.refreshToken(PSAuthTokenRefreshRequest(authTokenResponse.getOrNull()?.refreshToken!!))
+            .runCatchingBlocking()
+        assert(authTokenResponse.isSuccess && authTokenRefreshResponse.isSuccess)
+    }
 
     @Test
     fun getAccount() {
