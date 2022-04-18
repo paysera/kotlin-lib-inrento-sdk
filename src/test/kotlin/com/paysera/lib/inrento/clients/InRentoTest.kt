@@ -13,7 +13,7 @@ internal class InRentoTest : BaseTest() {
 
     @Test
     fun getToken() {
-        val authTokenResponse = apiClient.getToken(PSAuthTokenRequest("729511"))
+        val authTokenResponse = apiClient.getToken(PSAuthTokenRequest("insert_wallet_id"))
             .runCatchingBlocking()
         val authTokenRefreshResponse= apiClient.refreshToken(PSAuthTokenRefreshRequest(authTokenResponse.getOrNull()?.refreshToken!!))
             .runCatchingBlocking()
@@ -58,6 +58,13 @@ internal class InRentoTest : BaseTest() {
     @Test
     fun getProjectStatus() {
         val response = apiClient.getProjectStatus(342)
+            .runCatchingBlocking()
+        assert(response.isSuccess)
+    }
+
+    @Test
+    fun getProjectUpdates() {
+        val response = apiClient.getProjectUpdates(337)
             .runCatchingBlocking()
         assert(response.isSuccess)
     }

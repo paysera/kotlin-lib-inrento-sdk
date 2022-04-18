@@ -8,6 +8,7 @@ import com.paysera.lib.inrento.entities.document.PSDocument
 import com.paysera.lib.inrento.entities.portfolio.PSPortfolio
 import com.paysera.lib.inrento.entities.project.PSProjectInfo
 import com.paysera.lib.inrento.entities.project.PSProjectStatus
+import com.paysera.lib.inrento.entities.project.PSProjectUpdates
 import com.paysera.lib.inrento.entities.project.PSProjects
 import com.paysera.lib.inrento.entities.requests.PSInvestRequest
 import com.paysera.lib.inrento.entities.transaction.PSTransactions
@@ -43,6 +44,9 @@ interface NetworkApiClient {
 
     @GET("project/{id}/stats")
     fun getProjectStatus(@Path("id") id: Int): Deferred<PSProjectStatus>
+
+    @GET("project/{id}/updates")
+    fun getProjectUpdates(@Path("id") id: Int): Deferred<PSProjectUpdates>
 
     @POST("invest")
     fun invest(@Body investRequest: PSInvestRequest): Deferred<Response<Void>>

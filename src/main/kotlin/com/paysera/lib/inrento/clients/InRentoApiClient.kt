@@ -8,6 +8,7 @@ import com.paysera.lib.inrento.entities.document.PSDocument
 import com.paysera.lib.inrento.entities.portfolio.PSPortfolio
 import com.paysera.lib.inrento.entities.project.PSProjectInfo
 import com.paysera.lib.inrento.entities.project.PSProjectStatus
+import com.paysera.lib.inrento.entities.project.PSProjectUpdates
 import com.paysera.lib.inrento.entities.project.PSProjects
 import com.paysera.lib.inrento.entities.requests.PSAuthTokenRefreshRequest
 import com.paysera.lib.inrento.entities.requests.PSAuthTokenRequest
@@ -62,6 +63,10 @@ class InRentoApiClient(
 
     fun getProjectStatus(id: Int): Deferred<PSProjectStatus> {
         return networkApiClient.getProjectStatus(id)
+    }
+
+    fun getProjectUpdates(id: Int): Deferred<PSProjectUpdates> {
+        return networkApiClient.getProjectUpdates(id)
     }
 
     fun invest(investRequest: PSInvestRequest): Deferred<Response<Void>> {
