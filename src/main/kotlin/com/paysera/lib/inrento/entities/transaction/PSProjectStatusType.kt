@@ -2,7 +2,7 @@ package com.paysera.lib.inrento.entities.transaction
 
 import com.google.gson.annotations.SerializedName
 
-enum class PSProjectStatusType(value: Int) {
+enum class PSProjectStatusType(val value: Int) {
     @SerializedName("0")
     NOT_AVAILABLE(0),
     @SerializedName("1")
