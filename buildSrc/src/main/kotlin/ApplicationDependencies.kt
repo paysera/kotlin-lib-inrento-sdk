@@ -10,7 +10,6 @@ object ApplicationDependencies {
     private const val retrofit = "com.squareup.retrofit2:retrofit:${ApplicationDependencyVersions.retrofit}"
     private const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${ApplicationDependencyVersions.loggingInterceptor}"
     private const val gson = "com.google.code.gson:gson:${ApplicationDependencyVersions.gson}"
-    private const val certificateTransparency = "com.appmattus.certificatetransparency:certificatetransparency:${ApplicationDependencyVersions.certificateTransparency}"
     private const val payseraCommonSdk = "com.paysera.lib:kotlin-lib-common-sdk:${ApplicationDependencyVersions.payseraCommonSdk}"
 
     object TestingPlugins {
@@ -26,7 +25,6 @@ object ApplicationDependencies {
         retrofit,
         loggingInterceptor,
         gson,
-        certificateTransparency,
         payseraCommonSdk
     )
 }
