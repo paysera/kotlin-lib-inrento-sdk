@@ -47,7 +47,6 @@ open class BaseTest {
             locale = "lt",
             userAgent = userAgent,
             credentials = xApiCredentials,
-            certifiedHosts = listOf("test-api.inrento.com"),
             timeout = timeout,
             httpLoggingInterceptorLevel = loggingLevel,
             errorLogger = errorLoggerInterface
