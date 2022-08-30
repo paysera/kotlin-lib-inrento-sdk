@@ -1,11 +1,12 @@
 package com.paysera.lib.inrento.entities.project
 
 import com.google.gson.annotations.SerializedName
+import java.util.*
 
 data class PSProject(
     val id: Int,
     val name: String,
-    val status: PSProjectStatusType,
+    val status: Int?,
     val country: String?,
     val city: String?,
     val address: String?,
@@ -22,8 +23,8 @@ data class PSProject(
     val termDisplay: String?,
     val realReturn: String?,
     val realTerm: Int?,
-    @SerializedName("date_end_investments") val endInvestmentsDate: Int,
-    val principalReturnDate: Int?,
+    @SerializedName("date_end_investments") val endInvestmentsDate: Date,
+    val principalReturnDate: Date?,
     val investmentType: Int?,
     val investmentTypeName: String?,
     val propertyType: Int?,

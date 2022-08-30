@@ -10,6 +10,7 @@ import com.paysera.lib.inrento.entities.project.PSProjectInfo
 import com.paysera.lib.inrento.entities.project.PSProjectStatus
 import com.paysera.lib.inrento.entities.project.PSProjectUpdates
 import com.paysera.lib.inrento.entities.project.PSProjects
+import com.paysera.lib.inrento.entities.questionnaire.QuestionnaireAnswersRequest
 import com.paysera.lib.inrento.entities.requests.PSAuthTokenRefreshRequest
 import com.paysera.lib.inrento.entities.requests.PSAuthTokenRequest
 import com.paysera.lib.inrento.entities.requests.PSInvestRequest
@@ -77,12 +78,16 @@ class InRentoApiClient(
         return networkApiClient.confirmRiskAgreement()
     }
 
+    fun saveQuestionnaire(questionnaireAnswersRequest: QuestionnaireAnswersRequest): Deferred<Response<Void>> {
+        return networkApiClient.saveQuestionnaire(questionnaireAnswersRequest)
+    }
+
     fun getDocument(id: Int): Deferred<PSDocument> {
         return networkApiClient.getDocument(id)
     }
 
-    fun getToken(authTokenRequest: PSAuthTokenRequest): Deferred<PSAuthToken> {
-        return networkApiClient.getToken(authTokenRequest)
+    fun getTokens(authTokenRequest: PSAuthTokenRequest): Deferred<PSAuthToken> {
+        return networkApiClient.getTokens(authTokenRequest)
     }
 
     fun refreshToken(authTokenRefreshRequest: PSAuthTokenRefreshRequest): Deferred<PSAuthToken> {

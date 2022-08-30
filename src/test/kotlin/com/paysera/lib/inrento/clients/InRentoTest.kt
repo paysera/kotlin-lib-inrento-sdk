@@ -13,7 +13,7 @@ internal class InRentoTest : BaseTest() {
 
     @Test
     fun getToken() {
-        val authTokenResponse = apiClient.getToken(PSAuthTokenRequest("insert_wallet_id"))
+        val authTokenResponse = apiClient.getTokens(PSAuthTokenRequest(-1))
             .runCatchingBlocking()
         val authTokenRefreshResponse= apiClient.refreshToken(PSAuthTokenRefreshRequest(authTokenResponse.getOrNull()?.refreshToken!!))
             .runCatchingBlocking()

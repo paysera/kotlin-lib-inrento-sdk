@@ -10,6 +10,7 @@ import com.paysera.lib.inrento.entities.project.PSProjectInfo
 import com.paysera.lib.inrento.entities.project.PSProjectStatus
 import com.paysera.lib.inrento.entities.project.PSProjectUpdates
 import com.paysera.lib.inrento.entities.project.PSProjects
+import com.paysera.lib.inrento.entities.questionnaire.QuestionnaireAnswersRequest
 import com.paysera.lib.inrento.entities.requests.PSInvestRequest
 import com.paysera.lib.inrento.entities.transaction.PSTransactions
 import kotlinx.coroutines.Deferred
@@ -54,11 +55,14 @@ interface NetworkApiClient {
     @POST("risk_agreement")
     fun confirmRiskAgreement(): Deferred<Response<Void>>
 
+    @POST("questionnaire")
+    fun saveQuestionnaire(@Body questionnaireAnswersRequest: QuestionnaireAnswersRequest) :Deferred<Response<Void>>
+
     @GET("document/{id}")
     fun getDocument(@Path("id") id: Int): Deferred<PSDocument>
 
     @POST("tokens")
-    fun getToken(@Body authTokenRequest: PSAuthTokenRequest) : Deferred<PSAuthToken>
+    fun getTokens(@Body authTokenRequest: PSAuthTokenRequest) : Deferred<PSAuthToken>
 
     @POST("token/refresh")
     fun refreshToken(@Body authTokenRefreshRequest: PSAuthTokenRefreshRequest) : Deferred<PSAuthToken>
