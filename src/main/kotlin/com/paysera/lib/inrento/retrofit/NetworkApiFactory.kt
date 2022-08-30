@@ -5,6 +5,7 @@ import com.paysera.lib.common.interfaces.ErrorLoggerInterface
 import com.paysera.lib.common.interfaces.TokenRefresherInterface
 import com.paysera.lib.common.retrofit.BaseApiFactory
 import com.paysera.lib.inrento.clients.InRentoApiClient
+import okhttp3.Interceptor
 import okhttp3.logging.HttpLoggingInterceptor
 
 class NetworkApiFactory(
@@ -14,7 +15,8 @@ class NetworkApiFactory(
     credentials: BaseApiCredentials,
     timeout: Long? = null,
     httpLoggingInterceptorLevel: HttpLoggingInterceptor.Level = HttpLoggingInterceptor.Level.BASIC,
-    errorLogger: ErrorLoggerInterface
+    errorLogger: ErrorLoggerInterface,
+    certificateInterceptor: Interceptor?
 ) : BaseApiFactory<InRentoApiClient>(
     baseUrl = baseUrl,
     locale = locale,
@@ -22,7 +24,8 @@ class NetworkApiFactory(
     credentials = credentials,
     timeout = timeout,
     httpLoggingInterceptorLevel = httpLoggingInterceptorLevel,
-    errorLogger = errorLogger
+    errorLogger = errorLogger,
+    certificateInterceptor = certificateInterceptor
 ) {
 
     override fun createClient(tokenRefresher: TokenRefresherInterface?): InRentoApiClient {
