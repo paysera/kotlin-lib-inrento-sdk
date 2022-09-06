@@ -1,9 +1,6 @@
 package com.paysera.lib.inrento.retrofit
 
 import com.paysera.lib.inrento.entities.account.PSAccount
-import com.paysera.lib.inrento.entities.auth.PSAuthToken
-import com.paysera.lib.inrento.entities.requests.PSAuthTokenRefreshRequest
-import com.paysera.lib.inrento.entities.requests.PSAuthTokenRequest
 import com.paysera.lib.inrento.entities.document.PSDocument
 import com.paysera.lib.inrento.entities.portfolio.PSPortfolio
 import com.paysera.lib.inrento.entities.project.PSProjectInfo
@@ -56,14 +53,10 @@ interface NetworkApiClient {
     fun confirmRiskAgreement(): Deferred<Response<Void>>
 
     @POST("questionnaire")
-    fun saveQuestionnaire(@Body questionnaireAnswersRequest: QuestionnaireAnswersRequest) :Deferred<Response<Void>>
+    fun saveQuestionnaire(
+        @Body questionnaireAnswersRequest: QuestionnaireAnswersRequest
+    ): Deferred<Response<Void>>
 
     @GET("document/{id}")
     fun getDocument(@Path("id") id: Int): Deferred<PSDocument>
-
-    @POST("tokens")
-    fun getTokens(@Body authTokenRequest: PSAuthTokenRequest) : Deferred<PSAuthToken>
-
-    @POST("token/refresh")
-    fun refreshToken(@Body authTokenRefreshRequest: PSAuthTokenRefreshRequest) : Deferred<PSAuthToken>
 }

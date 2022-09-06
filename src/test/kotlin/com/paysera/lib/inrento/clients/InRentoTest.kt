@@ -13,10 +13,11 @@ internal class InRentoTest : BaseTest() {
 
     @Test
     fun getToken() {
-        val authTokenResponse = apiClient.getTokens(PSAuthTokenRequest(-1))
+        val authTokenResponse = accessAuthTokenApiClient.getTokens(PSAuthTokenRequest(4613665))
             .runCatchingBlocking()
-        val authTokenRefreshResponse= apiClient.refreshToken(PSAuthTokenRefreshRequest(authTokenResponse.getOrNull()?.refreshToken!!))
-            .runCatchingBlocking()
+        val authTokenRefreshResponse = authAuthTokenApiClient.refreshToken(
+            PSAuthTokenRefreshRequest(authTokenResponse.getOrNull()?.refreshToken!!)
+        ).runCatchingBlocking()
         assert(authTokenResponse.isSuccess && authTokenRefreshResponse.isSuccess)
     }
 

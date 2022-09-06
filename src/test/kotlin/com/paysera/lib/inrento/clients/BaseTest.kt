@@ -1,10 +1,13 @@
 package com.paysera.lib.inrento.clients
 
-import com.paysera.lib.common.entities.XAuthTokenApiCredentials
+import com.paysera.lib.common.entities.CustomApiCredentials
+import com.paysera.lib.common.entities.InRentoApiCredentials
 import com.paysera.lib.common.exceptions.ApiError
 import com.paysera.lib.common.interfaces.ErrorLoggerInterface
 import com.paysera.lib.common.interfaces.TokenRefresherInterface
 import com.paysera.lib.inrento.retrofit.NetworkApiFactory
+import com.paysera.lib.inrento.retrofit.NetworkAccessTokenApiFactory
+import com.paysera.lib.inrento.retrofit.NetworkAuthTokenApiFactory
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.Deferred
 import okhttp3.Request
@@ -19,8 +22,11 @@ open class BaseTest {
 
     companion object {
         private val userAgent = "okhttp/3.12.1"
-        private val xApiCredentials = XAuthTokenApiCredentials(
-            xApiKey = "insert_x_api_key",
+        private val inRentoApiCredentials = InRentoApiCredentials(
+            token = "insert_token"
+        )
+        private val customApiCredentials = CustomApiCredentials(
+            key = "x-api-key",
             token = "insert_token"
         )
         private val timeout: Long? = null
@@ -39,6 +45,8 @@ open class BaseTest {
     }
 
     protected lateinit var apiClient: InRentoApiClient
+    protected lateinit var accessAuthTokenApiClient: InRentoAccessTokenApiClient
+    protected lateinit var authAuthTokenApiClient: InRentoAuthTokenApiClient
 
     @BeforeAll
     open fun setUp() {
@@ -46,12 +54,31 @@ open class BaseTest {
             baseUrl = " https://test-api.inrento.com/paysera/v1/",
             locale = "lt",
             userAgent = userAgent,
-            credentials = xApiCredentials,
+            credentials = inRentoApiCredentials,
             timeout = timeout,
             httpLoggingInterceptorLevel = loggingLevel,
             errorLogger = errorLoggerInterface,
             certificateInterceptor = null
         ).createClient(tokenRefresher)
+        accessAuthTokenApiClient = NetworkAccessTokenApiFactory(
+            baseUrl = " https://test-api.inrento.com/paysera/v1/",
+            locale = "lt",
+            userAgent = userAgent,
+            credentials = customApiCredentials,
+            timeout = timeout,
+            httpLoggingInterceptorLevel = loggingLevel,
+            errorLogger = errorLoggerInterface,
+            certificateInterceptor = null
+        ).createClient(null)
+        authAuthTokenApiClient = NetworkAuthTokenApiFactory(
+            baseUrl = " https://test-api.inrento.com/paysera/v1/",
+            locale = "lt",
+            userAgent = userAgent,
+            timeout = timeout,
+            httpLoggingInterceptorLevel = loggingLevel,
+            errorLogger = errorLoggerInterface,
+            certificateInterceptor = null
+        ).createClient(null)
     }
 
     @AfterAll
