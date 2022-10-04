@@ -1,6 +1,7 @@
 package com.paysera.lib.inrento.entities.project
 
 import com.google.gson.annotations.SerializedName
+import com.paysera.lib.inrento.entities.document.PSDocument
 import java.util.*
 
 data class PSProject(
@@ -35,5 +36,7 @@ data class PSProject(
     val mortgageRankName: String?,
     @SerializedName("photo") val mainPhotoURL: String?,
     val riskScoringValue: String?,
-    val interestDistribution: String?
+    val interestDistribution: String?,
+    val updates: List<PSProjectUpdate>?,
+    val documents: Map<String, PSDocument>?
 )

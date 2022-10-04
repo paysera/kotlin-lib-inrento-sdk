@@ -5,7 +5,6 @@ import com.google.gson.annotations.SerializedName
 data class PSProjectInfo(
     @SerializedName("project_short") val project: PSProject?,
     val photos: List<String>,
-    @SerializedName("documents") val documentIds: List<Int>,
     @SerializedName("description") val descriptionHtml: String,
     @SerializedName("risk_scoring") val riskScoring: List<PSRiskScoring>,
     val occupancy: List<PSPOccupancy>,

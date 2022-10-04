@@ -64,12 +64,6 @@ internal class InRentoTest : BaseTest() {
     }
 
     @Test
-    fun getProjectUpdates() {
-        val response = apiClient.getProjectUpdates(337).runCatchingBlocking()
-        assert(response.isSuccess)
-    }
-
-    @Test
     fun invest() {
         val response = apiClient.invest(
             PSInvestRequest(
@@ -107,10 +101,4 @@ internal class InRentoTest : BaseTest() {
         val error = (response.exceptionOrNull() as? ApiError)?.error
         assert(response.isSuccess || error == "USER_ANSWER_ALREADY_EXISTS")
     }
-
-//    @Test
-//    fun getDocument() {
-//        val response = apiClient.getDocument(17).runCatchingBlocking()
-//        assert(response.isSuccess)
-//    }
 }
