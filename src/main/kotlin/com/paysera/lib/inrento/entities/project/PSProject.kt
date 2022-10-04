@@ -10,6 +10,8 @@ data class PSProject(
     val country: String?,
     val city: String?,
     val address: String?,
+    val latitude: Double?,
+    val longitude: Double?,
     val currency: String?,
     val fundingAmount: String,
     val collectedFunds: String,

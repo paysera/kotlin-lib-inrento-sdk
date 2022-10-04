@@ -21,10 +21,7 @@ import org.junit.jupiter.api.TestInstance.Lifecycle
 open class BaseTest {
 
     companion object {
-        private val userAgent = "okhttp/3.12.1"
-        private val inRentoApiCredentials = InRentoApiCredentials(
-            token = "insert_token"
-        )
+        private const val userAgent = "okhttp/3.12.1"
         private val customApiCredentials = CustomApiCredentials(
             key = "x-api-key",
             token = "insert_token"
@@ -37,11 +34,6 @@ open class BaseTest {
                 //  log
             }
         }
-        private val tokenRefresher = object : TokenRefresherInterface {
-            override fun refreshToken(): Deferred<Any> {
-                return CompletableDeferred(1)
-            }
-        }
     }
 
     protected lateinit var apiClient: InRentoApiClient
@@ -50,16 +42,6 @@ open class BaseTest {
 
     @BeforeAll
     open fun setUp() {
-        apiClient = NetworkApiFactory(
-            baseUrl = " https://test-api.inrento.com/paysera/v1/",
-            locale = "lt",
-            userAgent = userAgent,
-            credentials = inRentoApiCredentials,
-            timeout = timeout,
-            httpLoggingInterceptorLevel = loggingLevel,
-            errorLogger = errorLoggerInterface,
-            certificateInterceptor = null
-        ).createClient(tokenRefresher)
         accessAuthTokenApiClient = NetworkAccessTokenApiFactory(
             baseUrl = " https://test-api.inrento.com/paysera/v1/",
             locale = "lt",
@@ -79,6 +61,23 @@ open class BaseTest {
             errorLogger = errorLoggerInterface,
             certificateInterceptor = null
         ).createClient(null)
+    }
+
+    open fun setUpRefreshingApiCalls(authToken: String?) {
+        apiClient = NetworkApiFactory(
+            baseUrl = " https://test-api.inrento.com/paysera/v1/",
+            locale = "lt",
+            userAgent = userAgent,
+            credentials = InRentoApiCredentials(token = authToken),
+            timeout = timeout,
+            httpLoggingInterceptorLevel = loggingLevel,
+            errorLogger = errorLoggerInterface,
+            certificateInterceptor = null
+        ).createClient(object : TokenRefresherInterface {
+            override fun refreshToken(): Deferred<Any> {
+                return CompletableDeferred(1)
+            }
+        })
     }
 
     @AfterAll
