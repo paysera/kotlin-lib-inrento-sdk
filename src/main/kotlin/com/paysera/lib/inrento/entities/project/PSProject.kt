@@ -38,5 +38,5 @@ data class PSProject(
     val riskScoringValue: String?,
     val interestDistribution: String?,
     val updates: List<PSProjectUpdate>?,
-    val documents: Map<String, PSDocument>?
+    val documents: List<PSDocument>?
 )
