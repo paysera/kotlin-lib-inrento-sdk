@@ -1,3 +1,3 @@
 package com.paysera.lib.inrento.entities.requests
 
-data class PSAuthTokenRequest(val walletId: String)
+data class PSAuthTokenRequest(val walletId: Int)

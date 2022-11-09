@@ -4,5 +4,5 @@ import java.util.*
 
 data class PSProjectUpdate(
     val date: Date,
-    val content: String
+    val message: String
 )
