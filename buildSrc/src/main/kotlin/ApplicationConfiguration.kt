@@ -1,7 +1,7 @@
 object ApplicationConfiguration {
     const val artifactId = "kotlin-lib-inrento-sdk"
     const val groupId = "com.paysera.lib"
-    const val version = "1.0.7"
+    const val version = "1.0.8-SNAPSHOT"
     const val name = "Kotlin Library InRento SDK"
     const val url = "https://www.paysera.com/v2/en-GB/index"
     const val description = "Paysera: Kotlin InRento SDK Library"

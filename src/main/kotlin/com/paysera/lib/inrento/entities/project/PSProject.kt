@@ -38,5 +38,9 @@ data class PSProject(
     val riskScoringValue: String?,
     val interestDistribution: String?,
     val updates: List<PSProjectUpdate>?,
-    val documents: List<PSDocument>?
+    val documents: List<PSDocument>?,
+    val capitalGains: PSProjectCapitalGains?,
+    val reasonsToInvest: List<String>?,
+    val financialTerms: String?,
+    val projectOwner: PSProjectOwner?
 )
