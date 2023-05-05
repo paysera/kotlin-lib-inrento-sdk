@@ -9,7 +9,6 @@ import okhttp3.logging.HttpLoggingInterceptor
 
 class NetworkAuthTokenApiFactory(
     baseUrl: String,
-    locale: String?,
     userAgent: String?,
     timeout: Long? = null,
     httpLoggingInterceptorLevel: HttpLoggingInterceptor.Level = HttpLoggingInterceptor.Level.BASIC,
@@ -17,7 +16,6 @@ class NetworkAuthTokenApiFactory(
     certificateInterceptor: Interceptor?
 ) : BaseApiFactory<InRentoAuthTokenApiClient>(
     baseUrl = baseUrl,
-    locale = locale,
     userAgent = userAgent,
     credentials = null,
     timeout = timeout,
