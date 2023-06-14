@@ -44,18 +44,8 @@ open class BaseTest {
     open fun setUp() {
         accessAuthTokenApiClient = NetworkAccessTokenApiFactory(
             baseUrl = " https://test-api.inrento.com/paysera/v1/",
-            locale = "lt",
             userAgent = userAgent,
             credentials = customApiCredentials,
-            timeout = timeout,
-            httpLoggingInterceptorLevel = loggingLevel,
-            errorLogger = errorLoggerInterface,
-            certificateInterceptor = null
-        ).createClient(null)
-        authAuthTokenApiClient = NetworkAuthTokenApiFactory(
-            baseUrl = " https://test-api.inrento.com/paysera/v1/",
-            locale = "lt",
-            userAgent = userAgent,
             timeout = timeout,
             httpLoggingInterceptorLevel = loggingLevel,
             errorLogger = errorLoggerInterface,
@@ -66,7 +56,6 @@ open class BaseTest {
     open fun setUpRefreshingApiCalls(authToken: String?) {
         apiClient = NetworkApiFactory(
             baseUrl = " https://test-api.inrento.com/paysera/v1/",
-            locale = "lt",
             userAgent = userAgent,
             credentials = InRentoApiCredentials(token = authToken),
             timeout = timeout,

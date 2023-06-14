@@ -1,6 +1,7 @@
 package com.paysera.lib.inrento.retrofit
 
 import com.paysera.lib.inrento.entities.account.PSAccount
+import com.paysera.lib.inrento.entities.project.PSInvestmentEarns
 import com.paysera.lib.inrento.entities.project.PSProjectInfo
 import com.paysera.lib.inrento.entities.project.PSProjects
 import com.paysera.lib.inrento.entities.questionnaire.QuestionnaireAnswersRequest
@@ -33,4 +34,10 @@ interface NetworkApiClient {
     fun saveQuestionnaire(
         @Body questionnaireAnswersRequest: QuestionnaireAnswersRequest
     ): Deferred<Response<Void>>
+
+    @GET("project/{projectId}/{amount}")
+    fun getInvestmentEarns(
+        @Path("projectId") projectId: Int,
+        @Path("amount") amount: Double
+    ): Deferred<PSInvestmentEarns>
 }

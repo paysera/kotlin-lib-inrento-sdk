@@ -3,6 +3,7 @@ package com.paysera.lib.inrento.clients
 import com.paysera.lib.common.retrofit.ApiRequestManager
 import com.paysera.lib.common.retrofit.BaseApiClient
 import com.paysera.lib.inrento.entities.account.PSAccount
+import com.paysera.lib.inrento.entities.project.PSInvestmentEarns
 import com.paysera.lib.inrento.entities.project.PSProjectInfo
 import com.paysera.lib.inrento.entities.project.PSProjects
 import com.paysera.lib.inrento.entities.questionnaire.QuestionnaireAnswersRequest
@@ -44,5 +45,9 @@ class InRentoApiClient(
 
     fun saveQuestionnaire(questionnaireAnswersRequest: QuestionnaireAnswersRequest): Deferred<Response<Void>> {
         return networkApiClient.saveQuestionnaire(questionnaireAnswersRequest)
+    }
+
+    fun getInvestmentEarns(projectId: Int, amount: Double): Deferred<PSInvestmentEarns> {
+        return networkApiClient.getInvestmentEarns(projectId, amount)
     }
 }
