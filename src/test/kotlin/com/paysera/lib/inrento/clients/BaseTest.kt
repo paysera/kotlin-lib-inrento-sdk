@@ -7,7 +7,6 @@ import com.paysera.lib.common.interfaces.ErrorLoggerInterface
 import com.paysera.lib.common.interfaces.TokenRefresherInterface
 import com.paysera.lib.inrento.retrofit.NetworkApiFactory
 import com.paysera.lib.inrento.retrofit.NetworkAccessTokenApiFactory
-import com.paysera.lib.inrento.retrofit.NetworkAuthTokenApiFactory
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.Deferred
 import okhttp3.Request
