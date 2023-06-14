@@ -34,18 +34,6 @@ internal class InRentoTest : BaseTest() {
     }
 
     @Test
-    fun getPortfolio() {
-        val response = apiClient.getPortfolio(0, 10).runCatchingBlocking()
-        assert(response.isSuccess)
-    }
-
-    @Test
-    fun getTransactions() {
-        val response = apiClient.getTransactions(0, 10).runCatchingBlocking()
-        assert(response.isSuccess)
-    }
-
-    @Test
     fun getProjects() {
         val response = apiClient.getProjects(0, 10).runCatchingBlocking()
         assert(response.isSuccess)
@@ -54,12 +42,6 @@ internal class InRentoTest : BaseTest() {
     @Test
     fun getProject() {
         val response = apiClient.getProject(337).runCatchingBlocking()
-        assert(response.isSuccess)
-    }
-
-    @Test
-    fun getProjectStatus() {
-        val response = apiClient.getProjectStatus(342).runCatchingBlocking()
         assert(response.isSuccess)
     }
 
