@@ -54,7 +54,7 @@ open class BaseTest {
 
     open fun setUpRefreshingApiCalls(authToken: String?) {
         apiClient = NetworkApiFactory(
-            baseUrl = " https://test-api.inrento.com/paysera/v1/",
+            baseUrl = "https://api.inrento.com/paysera/v1/",
             userAgent = userAgent,
             credentials = InRentoApiCredentials(token = authToken),
             timeout = timeout,
