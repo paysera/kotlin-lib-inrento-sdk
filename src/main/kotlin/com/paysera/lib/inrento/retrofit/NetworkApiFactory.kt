@@ -38,7 +38,7 @@ class NetworkApiFactory(
         }
     }
 
-    override var doOCreateGsonConverterFactory: ((GsonBuilder) -> Unit)? = { gsonBuilder ->
+    override var doOnCreateGsonConverterFactory: ((GsonBuilder) -> Unit)? = { gsonBuilder ->
         gsonBuilder.registerTypeAdapter(PSProject::class.java, ProjectDeserializer())
     }
 }
