@@ -38,7 +38,7 @@ class ProjectDeserializer : JsonDeserializer<PSProject?> {
         return PSProject(
             id = project.get("id").asInt,
             name = project.get("name").asString,
-            status = project.getJsonElementOrNull("status")?.asInt,
+            status = project.get("status").asInt,
             country = project.getJsonElementOrNull("country")?.asString,
             city = project.getJsonElementOrNull("city")?.asString,
             address = project.getJsonElementOrNull("address")?.asString,
