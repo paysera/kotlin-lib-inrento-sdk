@@ -41,7 +41,7 @@ class ProjectDeserializer : JsonDeserializer<PSProject?> {
             status = project.getJsonElementOrNull("status")?.asInt,
             country = project.getJsonElementOrNull("country")?.asString,
             city = project.getJsonElementOrNull("city")?.asString,
-            address = project.getJsonElementOrNull("city")?.asString,
+            address = project.getJsonElementOrNull("address")?.asString,
             latitude = project.getJsonElementOrNull("latitude")?.asDouble,
             longitude = project.getJsonElementOrNull("longitude")?.asDouble,
             fundingAmount = project.getJsonElementOrNull("funding_amount")
