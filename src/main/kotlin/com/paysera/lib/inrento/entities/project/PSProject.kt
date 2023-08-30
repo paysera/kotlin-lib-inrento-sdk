@@ -22,7 +22,7 @@ data class PSProject(
     @SerializedName("yield_param1_name") val yieldName: String,
     @SerializedName("yield_param1_value") val yieldValue: String,
     val termInMonths: Int?,
-    val term: String?,
+    val term: Int?,
     val termDisplay: String?,
     val realReturn: String?,
     val realTerm: Int?,

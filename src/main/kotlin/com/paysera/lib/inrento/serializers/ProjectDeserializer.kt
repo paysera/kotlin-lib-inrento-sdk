@@ -60,7 +60,7 @@ class ProjectDeserializer : JsonDeserializer<PSProject?> {
             yieldName = project.get("yield_param1_name").asString,
             yieldValue = project.get("yield_param1_value").asString,
             termInMonths = project.getJsonElementOrNull("term_in_months")?.asInt,
-            term = project.getJsonElementOrNull("term")?.asString,
+            term = project.getJsonElementOrNull("term")?.asInt,
             termDisplay = project.getJsonElementOrNull("term_display")?.asString,
             realReturn = project.getJsonElementOrNull("real_return")?.asString,
             realTerm = project.getJsonElementOrNull("real_term")?.asInt,
@@ -69,7 +69,7 @@ class ProjectDeserializer : JsonDeserializer<PSProject?> {
                 project.get("date_principal_return"),
                 Date::class.java
             ),
-            investmentType = project.getJsonElementOrNull("investmentType")?.asInt,
+            investmentType = project.getJsonElementOrNull("investment_type")?.asInt,
             investmentTypeName = project.getJsonElementOrNull("investment_type_name")?.asString,
             propertyType = project.getJsonElementOrNull("property_type")?.asInt,
             propertyTypeName = project.getJsonElementOrNull("property_type_name")?.asString,
