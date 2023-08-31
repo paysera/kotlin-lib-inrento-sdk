@@ -11,6 +11,7 @@ object ApplicationDependencies {
     private const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${ApplicationDependencyVersions.loggingInterceptor}"
     private const val gson = "com.google.code.gson:gson:${ApplicationDependencyVersions.gson}"
     private const val payseraCommonSdk = "com.paysera.lib:kotlin-lib-common-sdk:${ApplicationDependencyVersions.payseraCommonSdk}"
+    private const val jodaMoney = "org.joda:joda-money:${ApplicationDependencyVersions.jodaMoney}"
 
     object TestingPlugins {
         const val assertjCore = "org.assertj:assertj-core:${ApplicationDependencyVersions.assertjCore}"
@@ -25,6 +26,7 @@ object ApplicationDependencies {
         retrofit,
         loggingInterceptor,
         gson,
-        payseraCommonSdk
+        payseraCommonSdk,
+        jodaMoney
     )
 }

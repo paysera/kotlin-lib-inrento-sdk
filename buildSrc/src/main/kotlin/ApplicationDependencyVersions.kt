@@ -7,4 +7,5 @@ object ApplicationDependencyVersions {
     const val payseraCommonSdk = "2.6.9"
     const val assertjCore = "3.19.0"
     const val jupiter = "5.7.2"
+    const val jodaMoney = "0.12"
 }

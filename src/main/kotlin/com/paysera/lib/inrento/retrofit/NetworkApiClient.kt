@@ -2,7 +2,7 @@ package com.paysera.lib.inrento.retrofit
 
 import com.paysera.lib.inrento.entities.account.PSAccount
 import com.paysera.lib.inrento.entities.project.PSInvestmentEarns
-import com.paysera.lib.inrento.entities.project.PSProjectInfo
+import com.paysera.lib.inrento.entities.project.PSProject
 import com.paysera.lib.inrento.entities.project.PSProjects
 import com.paysera.lib.inrento.entities.questionnaire.QuestionnaireAnswersRequest
 import com.paysera.lib.inrento.entities.requests.PSInvestRequest
@@ -22,7 +22,7 @@ interface NetworkApiClient {
     ): Deferred<PSProjects>
 
     @GET("project/{id}")
-    fun getProject(@Path("id") id: Int): Deferred<PSProjectInfo>
+    fun getProject(@Path("id") id: Int): Deferred<PSProject>
 
     @POST("invest")
     fun invest(@Body investRequest: PSInvestRequest): Deferred<Response<Void>>
