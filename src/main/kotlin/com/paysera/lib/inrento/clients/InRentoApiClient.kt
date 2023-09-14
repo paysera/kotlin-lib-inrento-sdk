@@ -4,7 +4,7 @@ import com.paysera.lib.common.retrofit.ApiRequestManager
 import com.paysera.lib.common.retrofit.BaseApiClient
 import com.paysera.lib.inrento.entities.account.PSAccount
 import com.paysera.lib.inrento.entities.project.PSInvestmentEarns
-import com.paysera.lib.inrento.entities.project.PSProjectInfo
+import com.paysera.lib.inrento.entities.project.PSProject
 import com.paysera.lib.inrento.entities.project.PSProjects
 import com.paysera.lib.inrento.entities.questionnaire.QuestionnaireAnswersRequest
 import com.paysera.lib.inrento.entities.requests.PSInvestRequest
@@ -31,7 +31,7 @@ class InRentoApiClient(
         )
     }
 
-    fun getProject(id: Int): Deferred<PSProjectInfo> {
+    fun getProject(id: Int): Deferred<PSProject> {
         return networkApiClient.getProject(id)
     }
 

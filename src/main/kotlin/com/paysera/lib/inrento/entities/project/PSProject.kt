@@ -1,7 +1,8 @@
 package com.paysera.lib.inrento.entities.project
 
 import com.google.gson.annotations.SerializedName
-import com.paysera.lib.inrento.entities.document.PSDocument
+import com.paysera.lib.inrento.entities.document.PSProjectDocument
+import org.joda.money.Money
 import java.util.*
 
 data class PSProject(
@@ -13,20 +14,19 @@ data class PSProject(
     val address: String?,
     val latitude: Double?,
     val longitude: Double?,
-    val currency: String?,
-    val fundingAmount: String,
-    val collectedFunds: String,
+    val fundingAmount: Money?,
+    val collectedFunds: Money?,
     val investorsCount: Int,
     val annualYield: String,
     val additionalAnnualYield: String?,
     @SerializedName("yield_param1_name") val yieldName: String,
     @SerializedName("yield_param1_value") val yieldValue: String,
-    val termInMonths: Int,
-    val term: String?,
+    val termInMonths: Int?,
+    val term: Int?,
     val termDisplay: String?,
     val realReturn: String?,
     val realTerm: Int?,
-    @SerializedName("date_end_investments") val endInvestmentsDate: Date,
+    @SerializedName("date_end_investments") val endInvestmentsDate: Date?,
     val principalReturnDate: Date?,
     val investmentType: Int?,
     val investmentTypeName: String?,
@@ -34,13 +34,19 @@ data class PSProject(
     val propertyTypeName: String?,
     val mortgageRank: Int?,
     val mortgageRankName: String?,
-    @SerializedName("photo") val mainPhotoURL: String?,
+    val mainPhotoURL: String?,
     val riskScoringValue: String?,
     val interestDistribution: String?,
     val updates: List<PSProjectUpdate>?,
-    val documents: List<PSDocument>?,
+    val documents: List<PSProjectDocument>?,
     val capitalGains: PSProjectCapitalGains?,
     val reasonsToInvest: List<String>?,
     val financialTerms: String?,
-    val projectOwner: PSProjectOwner?
+    val projectOwner: PSProjectOwner?,
+    val generalLoanTermsDocumentId: Int?,
+    val specialLoanTermsDocumentId: Int?,
+    val descriptionHtml: String?,
+    val riskScoring: List<PSRiskScoring>? = null,
+    val occupancy: List<PSPProjectOccupancy>? = null,
+    val photos: List<String>? = null
 )

@@ -1,6 +1,6 @@
 package com.paysera.lib.inrento.entities.document
 
-data class PSDocument(
+data class PSProjectDocument(
     val name: String,
     val url: String,
     val language: String?,
