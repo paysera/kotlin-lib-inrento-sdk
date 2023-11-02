@@ -15,6 +15,7 @@ data class PSInvestmentEarns(
     val projectId: String?,
     val annualYieldHint: String?,
     val fixedCapitalGainYieldHint: String?,
+    val profitShareCapitalGainPercentgeHint: String?,
     val earnHint: String?,
     val totalExpectedEarningsHint: String?
 )
