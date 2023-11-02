@@ -3,7 +3,7 @@ package com.paysera.lib.inrento.entities.project
 data class PSInvestmentEarns(
     val annualYield: String?,
     val fixedCapitalGainYield: String?,
-    val profitShareCapitalGainPercentge: String?,
+    val profitShareCapitalGainPercentage: String?,
     val earn: String?,
     val fixedCapitalGain: String?,
     val totalExpectedEarnings: String?,
@@ -15,7 +15,7 @@ data class PSInvestmentEarns(
     val projectId: String?,
     val annualYieldHint: String?,
     val fixedCapitalGainYieldHint: String?,
-    val profitShareCapitalGainPercentgeHint: String?,
+    val profitShareCapitalGainPercentageHint: String?,
     val earnHint: String?,
     val totalExpectedEarningsHint: String?
 )
