@@ -21,6 +21,8 @@ data class PSProject(
     val additionalAnnualYield: String?,
     @SerializedName("yield_param1_name") val yieldName: String,
     @SerializedName("yield_param1_value") val yieldValue: String,
+    val fixedCapitalGain: String?,
+    val profitShareCapitalGain: String?,
     val termInMonths: Int?,
     val term: Int?,
     val termDisplay: String?,

@@ -59,6 +59,8 @@ class ProjectDeserializer : JsonDeserializer<PSProject?> {
             additionalAnnualYield = project.getJsonElementOrNull("additional_annual_yield")?.asString,
             yieldName = project.get("yield_param1_name").asString,
             yieldValue = project.get("yield_param1_value").asString,
+            fixedCapitalGain = project.getJsonElementOrNull("fixed_capital_gain")?.asString,
+            profitShareCapitalGain = project.getJsonElementOrNull("profit_share_capital_gain")?.asString,
             termInMonths = project.getJsonElementOrNull("term_in_months")?.asInt,
             term = project.getJsonElementOrNull("term")?.asInt,
             termDisplay = project.getJsonElementOrNull("term_display")?.asString,
