@@ -2,11 +2,20 @@ package com.paysera.lib.inrento.entities.project
 
 data class PSInvestmentEarns(
     val annualYield: String?,
-    val additionalAnnualYield: String?,
+    val fixedCapitalGainYield: String?,
+    val profitShareCapitalGainPercentage: String?,
     val earn: String?,
-    val earnAdditional: String?,
+    val fixedCapitalGain: String?,
     val totalExpectedEarnings: String?,
-    val totalExpectedEarningsAdditional: String?,
-    val capitalGainPercentage: String?,
-    val projectId: String?
+    val totalFixedCapitalGain: String?,
+    val fixedCapitalGainString: String?,
+    val profitShareCapitalGainString: String?,
+    val earnPerYearString: String?,
+    val totalExpectedEarnString: String?,
+    val projectId: String?,
+    val annualYieldHint: String?,
+    val fixedCapitalGainYieldHint: String?,
+    val profitShareCapitalGainPercentageHint: String?,
+    val earnHint: String?,
+    val totalExpectedEarningsHint: String?
 )
